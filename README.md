@@ -69,16 +69,6 @@
 <br/>  
 
 
-## Recent Blog Posts  
-  
-
-<br/>  
-
-  
-
-<br/>  
-
-
 
 ### Visitor Counter  
 <div align="center">
