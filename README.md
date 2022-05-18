@@ -16,11 +16,3 @@
 <br/>  
 
 
-
-### Visitor Counter  
-<div align="center">
-<img src="https://komarev.com/ghpvc/?username=attack204&&style=flat-square" align="center" />
-</div>  
- 
-
-<div align="center"></div>
