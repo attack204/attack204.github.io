@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -195,14 +195,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="语言的需求"><a href="#语言的需求" class="headerlink" title="语言的需求"></a>语言的需求</h2><p>语言到底是为了解决什么问题？其实本质上还是数据。</p>
+                <h2 id="语言的需求">语言的需求</h2>
+<p>语言到底是为了解决什么问题？其实本质上还是数据。</p>
 <p>用语言编写出来，经过编译后的东西叫做程序，程序的本质就是数据输入、处理、输出。</p>
 <p>因此一门语言所需要的功能也就是对应的这三个，数据输入、处理、输出。</p>
 <p>为了完成这三个功能，语言需要相配套的机制，来处理这些数据。</p>
 <p>因此，语言需要实现的最重要的两个功能即是承载数据与处理数据。</p>
 <p>这也回答了数据是什么，以及如何处理数据的问题。</p>
 <p>而相对应的，产生了两套编程模式，第一套叫做oo，第二套叫做op</p>
-<p>在op模式中，承载数据的结构叫做结构体(structure)，而处理数据的叫做函数(function) (当然像pascal语言中也有过程一说)</p>
+<p>在op模式中，承载数据的结构叫做结构体(structure)，而处理数据的叫做函数(function)
+(当然像pascal语言中也有过程一说)</p>
 <p>在oo模式中，语言想办法把op中的结构体和函数放到一起处理，定义为一个对象，对象拥有属性(attributes)和方法(methods)</p>
 
 
@@ -503,6 +505,23 @@
 <!-- Image to hack wechat -->
 <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 

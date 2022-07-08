@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -202,8 +202,10 @@
 我的理解：
 任何一个程序，本质上都是数据处理程序
 为了实现数据处理，一个程序需要实现三个功能通信、计算、存储。
-从功能看程序通信要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。
-我们对A和B单独考虑，这时，只需要考虑A的输入输出、B的输入输出。而这......
+从功能看程序
+通信
+要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。
+我们对A和B单独考虑，这时，只需要考虑A的输入输出、B的输入输出。......
         </div>
     </a>
     <p class="post-meta">
@@ -224,13 +226,14 @@
             
         </h3>
         <div class="post-content-preview">
-            语言的需求语言到底是为了解决什么问题？其实本质上还是数据。
+            语言的需求
+语言到底是为了解决什么问题？其实本质上还是数据。
 用语言编写出来，经过编译后的东西叫做程序，程序的本质就是数据输入、处理、输出。
 因此一门语言所需要的功能也就是对应的这三个，数据输入、处理、输出。
 为了完成这三个功能，语言需要相配套的机制，来处理这些数据。
 因此，语言需要实现的最重要的两个功能即是承载数据与处理数据。
 这也回答了数据是什么，以及如何处理数据的问题。
-而相对应的，产生......
+而相对应的，产......
         </div>
     </a>
     <p class="post-meta">
@@ -251,9 +254,10 @@
             
         </h3>
         <div class="post-content-preview">
-            究竟什么是计算机？显然，计算机肯定要能计算，例如，计算1+1的和
+            究竟什么是计算机？
+显然，计算机肯定要能计算，例如，计算1+1的和
 另外，计算机要能够存储数据，1+1的1，到底存到磁盘的哪里，内存的哪里，怎么存？
-再者，计算机要能够通信，这里的通信，既包括了两个机器之间的网络通信，机器与外设之间的通信、也包括了进程与进程间的本地通信，还包括进程中线程的互相通信，甚至，函数的调用也可以看作上层函数与下层函数之间的通信，总之，一切能够传递计算数据的过程，都可以......
+再者，计算机要能够通信，这里的通信，既包括了两个机器之间的网络通信，机器与外设之间的通信、也包括了进程与进程间的本地通信，还包括进程中线程的互相通信，甚至，函数的调用也可以看作上层函数与下层函数之间的通信，总之，一切能够传递计算数据的过程，都可......
         </div>
     </a>
     <p class="post-meta">
@@ -278,9 +282,10 @@
 然鹅学了不到一个月文化课再回来看OI的东西有一种恍如隔世的感觉，烤前感觉也没啥可复习的，就补一补去年二轮的题吧。
 题目思路基本都参考自shadowice神仙Orz
 Day2T1没时间做了咕咕咕
-物理实验充满毒瘤气息的计算几何题。。
-首先旋转一下坐标系，那么只需要考虑两条线平行于$y$轴的情况。
-由于题目中规定每个挡板都不和直线导轨接触，因此一定......
+物理实验
+充满毒瘤气息的计算几何题。。
+首先旋转一下坐标系，那么只需要考虑两条线平行于\(y\)轴的情况。
+由于题目中规定每个挡板都不和直线导轨接触，因......
         </div>
     </a>
     <p class="post-meta">
@@ -302,13 +307,15 @@ Day2T1没时间做了咕咕咕
         </h3>
         <div class="post-content-preview">
             对于同余式
-$$x^2 \equiv n \pmod p$$
-若对于给定的$n, P$，存在$x$满足上面的式子，则乘$n$在模$p$意义下是二次剩余，否则为非二次剩余
-我们需要计算的是在给定范围内所有满足条件的$x$，同时为了方便，我们只讨论$p$是奇质数的情况
+\[x^2 \equiv n \pmod p\]
+若对于给定的\(n, P\)，存在\(x\)满足上面的式子，则乘\(n\)在模\(p\)意义下是二次剩余，否则为非二次剩余
+我们需要计算的是在给定范围内所有满足条件的\(x\)，同时为了方便，我们只讨论\(p\)是奇质数的情况
 前置定理
-$x^2 \equiv (x+p)^2 \pmod p$
 
-证明：$x^2 \equiv x^2 + 2xp + p^......
+\(x^2 \equiv (x+p)^2 \pmod
+p\)
+
+证明：\(x^2 \equi......
         </div>
     </a>
     <p class="post-meta">
@@ -599,6 +606,23 @@ $x^2 \equiv (x+p)^2 \pmod p$
 <!-- Image to hack wechat -->
 <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 

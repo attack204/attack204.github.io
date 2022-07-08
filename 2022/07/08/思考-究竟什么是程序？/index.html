@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -199,68 +199,83 @@
 <p>我的理解：</p>
 <p>任何一个程序，本质上都是数据处理程序</p>
 <p>为了实现数据处理，一个程序需要实现三个功能通信、计算、存储。</p>
-<h1 id="从功能看程序"><a href="#从功能看程序" class="headerlink" title="从功能看程序"></a>从功能看程序</h1><h2 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h2><p>要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。</p>
+<h1 id="从功能看程序">从功能看程序</h1>
+<h2 id="通信">通信</h2>
+<p>要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。</p>
 <p>我们对A和B单独考虑，这时，只需要考虑A的输入输出、B的输入输出。而这又可以看作一个问题来考虑。</p>
-<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>这里的输入有如下几种</p>
-<ol>
-<li>启动时输入(配置文件) </li>
+<h3 id="输入">输入</h3>
+<p>这里的输入有如下几种</p>
+<ol type="1">
+<li>启动时输入(配置文件)</li>
 </ol>
 <p>启动时输入，即程序启动进行初始化的时候就需要读取的文件，程序根据这些信息进行初始化</p>
 <p>例如Java的applicaiton.properties</p>
-<p><img src="https://cdn.attack204.com/20220708135710.png" alt=""></p>
+<p><img src="https://cdn.attack204.com/20220708135710.png" /></p>
 <p>又或者gin框架，service_api.yml</p>
-<p><img src="https://cdn.attack204.com/20220708135720.png" alt=""></p>
-<ol start="2">
+<p><img src="https://cdn.attack204.com/20220708135720.png" /></p>
+<ol start="2" type="1">
 <li>运行时输入</li>
 </ol>
 <p>运行时输入的方式通常有三种</p>
-<ol>
+<ol type="1">
 <li>通过JDBC等，使用一个程序驱动另一个程序</li>
 <li>程序提供cli界面，例如hive、mysql，maven、bash等，用户通过命令界面操作程序</li>
 <li>程序提供ui界面，本质上就是提供了一系列web api</li>
 </ol>
 <p>当程序启动后，需要使用这三种信息来驱动程序继续进行数据处理</p>
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>一个程序的输出有这么几种</p>
-<ol>
+<h3 id="输出">输出</h3>
+<p>一个程序的输出有这么几种</p>
+<ol type="1">
 <li>返回到console</li>
 <li>写入到数据库</li>
 <li>将数据发送给另一个程序</li>
 </ol>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ol>
-<li>对变量的加加减减：从最基础的a+b Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
+<h2 id="计算">计算</h2>
+<ol type="1">
+<li>对变量的加加减减：从最基础的a+b
+Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
 <li>对对象的再加工：例如，后端的本质就是将数据库的PO对象进行一系列的操作后返回给前端</li>
 <li>……</li>
 </ol>
-<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>存储的形式最常见的有文件存储以及数据库存储。</p>
+<h2 id="存储">存储</h2>
+<p>存储的形式最常见的有文件存储以及数据库存储。</p>
 <p>对于日志文件、视频音频文件等需要使用文件存储</p>
 <p>对于计算过程中</p>
-<h1 id="从生命周期来看程序"><a href="#从生命周期来看程序" class="headerlink" title="从生命周期来看程序"></a>从生命周期来看程序</h1><p>显然，从OS被载入内存，到系统shutdown，OS以及被OS所包含的所有软件都有initialize -&gt; running -&gt; shutdown这三个状态。</p>
+<h1 id="从生命周期来看程序">从生命周期来看程序</h1>
+<p>显然，从OS被载入内存，到系统shutdown，OS以及被OS所包含的所有软件都有initialize
+-&gt; running -&gt; shutdown这三个状态。</p>
 <p>因此，如果按这个道理来看</p>
-<p>从OS -&gt; 程序 -&gt; 进程 -&gt; 线程 -&gt; 组件 -&gt; 函数 -&gt; 变量</p>
+<p>从OS -&gt; 程序 -&gt; 进程 -&gt; 线程 -&gt; 组件 -&gt; 函数 -&gt;
+变量</p>
 <p>各个维度来看，任何一样东西都会有生命周期。</p>
 <p>因此，在学习一个陌生知识点的时候，需要不断的问自己这三个问题：</p>
-<ol>
-<li><p>这个组件什么时候初始化，如何初始化，具体哪些变量或者数据结构初始化？</p>
-</li>
-<li><p>这个组件运行的时候要做什么，上游来的请求是什么样的，偷传给下游的数据是什么样的？</p>
-</li>
-<li><p>这个组件什么时候被销毁？具体销毁的代码是怎么写的呢？</p>
-</li>
+<ol type="1">
+<li><p>这个组件什么时候初始化，如何初始化，具体哪些变量或者数据结构初始化？</p></li>
+<li><p>这个组件运行的时候要做什么，上游来的请求是什么样的，偷传给下游的数据是什么样的？</p></li>
+<li><p>这个组件什么时候被销毁？具体销毁的代码是怎么写的呢？</p></li>
 </ol>
-<h1 id="从系统架构来看程序"><a href="#从系统架构来看程序" class="headerlink" title="从系统架构来看程序"></a>从系统架构来看程序</h1><ol>
-<li><p>日志系统</p>
-</li>
-<li><p>监控系统/metrics系统</p>
-</li>
-<li><p>公共组件<br> a. 线程管理<br> b. 异常处理<br> c. 基础工具类</p>
-</li>
-<li><p>单元测试<br> a. SpringBoot提供了Test类来进行测试<br> b. ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</p>
-</li>
-<li><p>权限系统</p>
-</li>
+<h1 id="从系统架构来看程序">从系统架构来看程序</h1>
+<ol type="1">
+<li><p>日志系统</p></li>
+<li><p>监控系统/metrics系统</p></li>
+<li><p>公共组件</p>
+<ol type="a">
+<li>线程管理</li>
+<li>异常处理</li>
+<li>基础工具类</li>
+</ol></li>
+<li><p>单元测试</p>
+<ol type="a">
+<li>SpringBoot提供了Test类来进行测试</li>
+<li>ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</li>
+</ol></li>
+<li><p>权限系统</p></li>
 </ol>
 <p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
-<p>权限校验一般会放在最开始的部分，不与具体业务耦合。<br>    a. Linux系统有用户和用户组的概念<br>    b. Vue前端可以做到按钮级别的权限管理<br>    c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）<br>    d. MySQL等数据库可以做到表的CRUD权限管理</p>
+<p>权限校验一般会放在最开始的部分，不与具体业务耦合。 a.
+Linux系统有用户和用户组的概念 b. Vue前端可以做到按钮级别的权限管理 c.
+SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型） d.
+MySQL等数据库可以做到表的CRUD权限管理</p>
 
 
                 <hr>
@@ -556,6 +571,23 @@
 <!-- Image to hack wechat -->
 <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 
