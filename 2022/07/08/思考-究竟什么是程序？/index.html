@@ -13,11 +13,11 @@
 
     <title>
         
-          attack204的博客 | attack204&#39;s Blog
+          思考:究竟什么是程序？ - attack204的博客 | attack204&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="https://blog.attack204.com/">
+    <link rel="canonical" href="https://blog.attack204.com/2022/07/08/思考-究竟什么是程序？/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -153,201 +153,161 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>attack204&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Database taste well</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>思考:究竟什么是程序？</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by attack204 on
+                        2022-07-08
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>究竟什么是一个程序？</p>
+<p>我的理解：</p>
+<p>任何一个程序，本质上都是数据处理程序</p>
+<p>为了实现数据处理，一个程序需要实现三个功能通信、计算、存储。</p>
+<h1 id="从功能看程序"><a href="#从功能看程序" class="headerlink" title="从功能看程序"></a>从功能看程序</h1><h2 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h2><p>要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。</p>
+<p>我们对A和B单独考虑，这时，只需要考虑A的输入输出、B的输入输出。而这又可以看作一个问题来考虑。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>这里的输入有如下几种</p>
+<ol>
+<li>启动时输入(配置文件) </li>
+</ol>
+<p>启动时输入，即程序启动进行初始化的时候就需要读取的文件，程序根据这些信息进行初始化</p>
+<p>例如Java的applicaiton.properties</p>
+<p><img src="https://cdn.attack204.com/20220708135710.png" alt=""></p>
+<p>又或者gin框架，service_api.yml</p>
+<p><img src="https://cdn.attack204.com/20220708135720.png" alt=""></p>
+<ol start="2">
+<li>运行时输入</li>
+</ol>
+<p>运行时输入的方式通常有三种</p>
+<ol>
+<li>通过JDBC等，使用一个程序驱动另一个程序</li>
+<li>程序提供cli界面，例如hive、mysql，maven、bash等，用户通过命令界面操作程序</li>
+<li>程序提供ui界面，本质上就是提供了一系列web api</li>
+</ol>
+<p>当程序启动后，需要使用这三种信息来驱动程序继续进行数据处理</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>一个程序的输出有这么几种</p>
+<ol>
+<li>返回到console</li>
+<li>写入到数据库</li>
+<li>将数据发送给另一个程序</li>
+</ol>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ol>
+<li>对变量的加加减减：从最基础的a+b Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
+<li>对对象的再加工：例如，后端的本质就是将数据库的PO对象进行一系列的操作后返回给前端</li>
+<li>……</li>
+</ol>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>存储的形式最常见的有文件存储以及数据库存储。</p>
+<p>对于日志文件、视频音频文件等需要使用文件存储</p>
+<p>对于计算过程中</p>
+<h1 id="从生命周期来看程序"><a href="#从生命周期来看程序" class="headerlink" title="从生命周期来看程序"></a>从生命周期来看程序</h1><p>显然，从OS被载入内存，到系统shutdown，OS以及被OS所包含的所有软件都有initialize -&gt; running -&gt; shutdown这三个状态。</p>
+<p>因此，如果按这个道理来看</p>
+<p>从OS -&gt; 程序 -&gt; 进程 -&gt; 线程 -&gt; 组件 -&gt; 函数 -&gt; 变量</p>
+<p>各个维度来看，任何一样东西都会有生命周期。</p>
+<p>因此，在学习一个陌生知识点的时候，需要不断的问自己这三个问题：</p>
+<ol>
+<li><p>这个组件什么时候初始化，如何初始化，具体哪些变量或者数据结构初始化？</p>
+</li>
+<li><p>这个组件运行的时候要做什么，上游来的请求是什么样的，偷传给下游的数据是什么样的？</p>
+</li>
+<li><p>这个组件什么时候被销毁？具体销毁的代码是怎么写的呢？</p>
+</li>
+</ol>
+<h1 id="从系统架构来看程序"><a href="#从系统架构来看程序" class="headerlink" title="从系统架构来看程序"></a>从系统架构来看程序</h1><ol>
+<li><p>日志系统</p>
+</li>
+<li><p>监控系统/metrics系统</p>
+</li>
+<li><p>公共组件<br> a. 线程管理<br> b. 异常处理<br> c. 基础工具类</p>
+</li>
+<li><p>单元测试<br> a. SpringBoot提供了Test类来进行测试<br> b. ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</p>
+</li>
+<li><p>权限系统</p>
+</li>
+</ol>
+<p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
+<p>权限校验一般会放在最开始的部分，不与具体业务耦合。<br>    a. Linux系统有用户和用户组的概念<br>    b. Vue前端可以做到按钮级别的权限管理<br>    c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）<br>    d. MySQL等数据库可以做到表的CRUD权限管理</p>
 
 
-<div class="post-preview">
+                <hr>
 
-    <a href="/2022/07/08/思考-究竟什么是程序？/">
-        <h2 class="post-title">
-            思考:究竟什么是程序？
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            究竟什么是一个程序？
-我的理解：
-任何一个程序，本质上都是数据处理程序
-为了实现数据处理，一个程序需要实现三个功能通信、计算、存储。
-从功能看程序通信要实现通信，必然要有两个事物，不妨假设其为A和B，A要向B发送信息，B要接受到A的信息，B要向A发送消息，A要接受到B的消息。这里有四种情况需要讨论，但是不妨把它拆分一下。
-我们对A和B单独考虑，这时，只需要考虑A的输入输出、B的输入输出。而这......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by attack204 on
-        2022-07-08
-    </p>
+                
 
-</div>
-<hr>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2022/07/08/思考-究竟什么是语言？/" data-toggle="tooltip" data-placement="top" title="思考: 究竟什么是语言？">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-<div class="post-preview">
+                
 
-    <a href="/2022/07/08/思考-究竟什么是语言？/">
-        <h2 class="post-title">
-            思考: 究竟什么是语言？
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            语言的需求语言到底是为了解决什么问题？其实本质上还是数据。
-用语言编写出来，经过编译后的东西叫做程序，程序的本质就是数据输入、处理、输出。
-因此一门语言所需要的功能也就是对应的这三个，数据输入、处理、输出。
-为了完成这三个功能，语言需要相配套的机制，来处理这些数据。
-因此，语言需要实现的最重要的两个功能即是承载数据与处理数据。
-这也回答了数据是什么，以及如何处理数据的问题。
-而相对应的，产生......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by attack204 on
-        2022-07-08
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2022/07/08/思考-究竟什么是计算机？/">
-        <h2 class="post-title">
-            思考:究竟什么是计算机？
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             究竟什么是计算机？
-显然，计算机肯定要能计算，例如，计算1+1的和
-另外，计算机要能够存储数据，1+1的1，到底存到磁盘的哪里，内存的哪里，怎么存？
-再者，计算机要能够通信，这里的通信，既包括了两个机器之间的网络通信，机器与外设之间的通信、也包括了进程与进程间的本地通信，还包括进程中线程的互相通信，甚至，函数的调用也可以看作上层函数与下层函数之间的通信，总之，一切能够传递计算数据的过程，都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by attack204 on
-        2022-07-08
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
+                       
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpeg" />
-                        
-
-                        
-                            <p>all in database</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/attack-61">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/attack204">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -360,9 +320,66 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "attack204";
+    var disqus_identifier = "https://blog.attack204.com/2022/07/08/%E6%80%9D%E8%80%83-%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%EF%BC%9F/";
+    var disqus_url = "https://blog.attack204.com/2022/07/08/%E6%80%9D%E8%80%83-%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F%EF%BC%9F/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
