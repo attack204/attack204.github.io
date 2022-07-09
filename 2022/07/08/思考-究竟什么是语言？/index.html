@@ -226,11 +226,12 @@
 <p>对于Java和C++的并发编程问题，其实就是提供一系列的API以控制好临界区与线程之间的竞争关系</p>
 <p>对于临界区是一个变量的情况，可以提供原子变量的设计供开发者使用。</p>
 <p>而对于临界区是一个代码片段的情况，则提供互斥锁mutex来避免竞态条件。</p>
-<p>对于mutex，可能会出现n个线程阻塞在同一个临界区的情况，因此提供condition条件变量来让开发者可以自行决策当unlock时究竟唤醒哪一个线程</p>
+<p>实际上有了mutex，单纯的竞态条件就已经不存在了</p>
+<p>但是这里还有许多问题</p>
 <ol>
-<li>Java一系列的锁</li>
-<li>Go Goroutine + Channel</li>
-<li>C++ Mutex </li>
+<li>对于mutex，可能会出现n个线程阻塞在同一个临界区的情况，因此提供condition条件变量来让开发者可以自行决策当unlock时究竟唤醒哪一个线程</li>
+<li>mutex需要手动lock和unlock，所以提供了lock_gurad来自动lock和unlock。（所以lock_gaurd是不是可以类比为智能锁233) </li>
+<li>condition的notify和wait接口通信，本质上是在传输一个布尔变量。但如果我们想传递一个对象或者一个字符串呢？虽然可以通过开全局变量的方式来解决，但是C++引入了promise和future来更直接的完成这种操作</li>
 </ol>
 <h1 id="异常的实现方式-TODO"><a href="#异常的实现方式-TODO" class="headerlink" title="异常的实现方式(TODO)"></a>异常的实现方式(TODO)</h1><p>Java、C++: try…catch</p>
 <p>Go: nil</p>
