@@ -237,7 +237,7 @@
 <h1 id="异常的实现方式-TODO"><a href="#异常的实现方式-TODO" class="headerlink" title="异常的实现方式(TODO)"></a>异常的实现方式(TODO)</h1><p>Java、C++: try…catch</p>
 <p>Go: nil</p>
 <h1 id="对于class-struct的考量-TODO"><a href="#对于class-struct的考量-TODO" class="headerlink" title="对于class/struct的考量(TODO)"></a>对于class/struct的考量(TODO)</h1><h1 id="对于基础数据类型的考量-TODO"><a href="#对于基础数据类型的考量-TODO" class="headerlink" title="对于基础数据类型的考量(TODO)"></a>对于基础数据类型的考量(TODO)</h1><h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><p>对于Java语言，基本上遵循着驼峰式命名法(对于类名首字母大写，变量名首字母小写）</p>
-<p>对于C++语言，基本上采用下划线分割的方法（当然openGauss里驼峰式和下划线式混用就多少有点奇葩）</p>
+<p>对于C++语言，基本上采用下划线分割的方法（当然openGauss里驼峰式和下划线式混用就多少有点奇葩）。像cmu15-445的bustub，对于成员变量都在最后加了下划线，非常友好</p>
 <p>而对于Go语言，变量的命名方法与是否是private变量有关，因此一般采用驼峰式命名法，而是否大小写根据成员的具体情况来定</p>
 <h1 id="打包方式"><a href="#打包方式" class="headerlink" title="打包方式"></a>打包方式</h1><ol>
 <li>C++提供了CMake来生成MakeFile，并使用make来进行编译生成可执行文件</li>
