@@ -208,10 +208,16 @@
 <p>在op模式中，承载数据的结构叫做结构体(structure)，而处理数据的叫做函数(function) (当然像pascal语言中也有过程一说)</p>
 <p>在oo模式中，语言想办法把op中的结构体和函数放到一起处理，定义为一个对象，对象拥有属性(attributes)和方法(methods)</p>
 <h1 id="OO的实现方式"><a href="#OO的实现方式" class="headerlink" title="OO的实现方式"></a>OO的实现方式</h1><ol>
-<li>Java: interface + abstract class + class</li>
-<li>Go: interface + struct</li>
-<li>C++: interface(使用纯虚函数实现) + class </li>
+<li><p>Java: interface + abstract class + class</p>
+</li>
+<li><p>Go: interface + struct</p>
+</li>
 </ol>
+<ol>
+<li>C++: interface(使用纯虚函数实现，纯虚函数不能有实现) + abstract class(使用虚函数，虚函数可以有实现)+ class(可以重写其父类的虚函数和非虚函数)</li>
+</ol>
+<p>具体在实现时，一般用.h文件来定义class的声明信息，在.cpp中写具体的实现</p>
+<hr>
 <p>我的理解是，不论interface还是abstract class，其本质还是对class进行分类</p>
 <p>有的class需要大量的被继承，且每个方法对于不同的类实现都不同，因此可以被抽象为interface</p>
 <p>有的class需要被继承，但是含有一些确定的公共方法，因此可以被抽象为abstract class</p>
