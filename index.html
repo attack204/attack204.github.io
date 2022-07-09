@@ -161,7 +161,7 @@
                 <div class="site-heading">
                     <h1>attack204&#39;s Blog</h1>
                     <!--<hr class="small">-->
-                    <span class="subheading">Database tastes good</span>
+                    <span class="subheading">Database tastes well</span>
                 </div>
             </div>
         </div>
@@ -588,6 +588,23 @@ $x^2 \equiv (x+p)^2 \pmod p$
 <!-- Image to hack wechat -->
 <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 
