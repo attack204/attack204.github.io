@@ -4,7 +4,7 @@
 
 ### <div align="center">and a pupil in studying English</div>  
   
-###  <div align="center">If you wanna know more about me, please see <a href="https://attack204.com">here</a> </div>  
+###  <div align="center">If you wanna know more about me, please see <a href="https://blog.attack204.com/">here</a> </div>  
 
 <br/>  
 
