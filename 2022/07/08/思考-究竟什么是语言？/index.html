@@ -222,7 +222,7 @@
 <h1 id="OO与OP"><a href="#OO与OP" class="headerlink" title="OO与OP"></a>OO与OP</h1><h2 id="OO-OP的实现方式"><a href="#OO-OP的实现方式" class="headerlink" title="OO/OP的实现方式"></a>OO/OP的实现方式</h2><ol>
 <li><p>Java: interface + abstract class + class</p>
 </li>
-<li><p>Go: interface + struct</p>
+<li><p>Go: interface + struct。Go语言不允许在struct中写方法，强行把属性和方法分开了。但是C++可以在.h文件中定义方法且做一部分实现。我猜Go不允许写方法的原因是，当C++中出现方法的删除时，需要删除.h中的定义以及.cpp中的实现，做了重复的工作。而Java则规定方法的实现不能在class外部。所以Go和Java算是两个极端了吧hh，C++夹在它们中间。</p>
 </li>
 <li><p>C++: interface(使用纯虚函数实现，纯虚函数不能有实现) + abstract class(使用虚函数，虚函数可以有实现)+ class(可以重写其父类的虚函数和非虚函数)。具体在实现时，一般用.h文件来定义class的声明信息，在.cpp中写具体的实现</p>
 </li>
