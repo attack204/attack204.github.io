@@ -206,6 +206,10 @@
 <li>微服务调用使用RPC，底层还是socket</li>
 <li>JDBC连接MySQL时走MySQL协议，连接Hive时走Hive协议，其实底层还是socket</li>
 </ol>
+<p>所有程序之间的通信都有两种方法，一种是pull一种是push。</p>
+<p>例如在raft中如何确定leader的状态？</p>
+<p>push：leader定期向follow发送heartBeat，refresh其electionElapsed（相当于leader向follow传数据）</p>
+<p>pull：follow定期向leader发送heartBeat，check其有没有在线（相当于follow从leader拉数据）</p>
 <h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ol>
 <li>对变量的加加减减：从最基础的a+b Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
 <li>对对象的再加工：例如，后端的本质就是将数据库的PO对象进行一系列的操作后返回给前端</li>
