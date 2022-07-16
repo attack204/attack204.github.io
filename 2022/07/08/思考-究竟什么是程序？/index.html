@@ -197,11 +197,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="究竟什么是一个程序？"><a href="#究竟什么是一个程序？" class="headerlink" title="究竟什么是一个程序？"></a>究竟什么是一个程序？</h1><p>我的理解：</p>
+                <h1 id="究竟什么是一个程序">究竟什么是一个程序？</h1>
+<p>我的理解：</p>
 <p>任何一个程序，本质上都是数据处理程序</p>
 <p>为了实现数据处理，一个程序需要实现三个功能通信、计算、存储。</p>
-<h1 id="从功能看程序"><a href="#从功能看程序" class="headerlink" title="从功能看程序"></a>从功能看程序</h1><h2 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h2><p>常见的通信方式有以下几种</p>
-<ol>
+<h1 id="从功能看程序">从功能看程序</h1>
+<h2 id="通信">通信</h2>
+<p>常见的通信方式有以下几种</p>
+<ol type="1">
 <li>前后端交互走HTTP协议</li>
 <li>微服务调用使用RPC，底层还是socket</li>
 <li>JDBC连接MySQL时走MySQL协议，连接Hive时走Hive协议，其实底层还是socket</li>
@@ -210,67 +213,91 @@
 <p>例如在raft中如何确定leader的状态？</p>
 <p>push：leader定期向follow发送heartBeat，refresh其electionElapsed（相当于leader向follow传数据）</p>
 <p>pull：follow定期向leader发送heartBeat，check其有没有在线（相当于follow从leader拉数据）</p>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ol>
-<li>对变量的加加减减：从最基础的a+b Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
+<h2 id="计算">计算</h2>
+<ol type="1">
+<li>对变量的加加减减：从最基础的a+b
+Problem，到快速傅立叶变换等高级算法，本质上都是对数据的加加减减</li>
 <li>对对象的再加工：例如，后端的本质就是将数据库的PO对象进行一系列的操作后返回给前端</li>
 <li>……</li>
 </ol>
-<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>存储的形式最常见的有文件存储以及数据库存储。</p>
-<h1 id="从生命周期来看程序"><a href="#从生命周期来看程序" class="headerlink" title="从生命周期来看程序"></a>从生命周期来看程序</h1><p>显然，从OS被载入内存，到系统shutdown，OS以及被OS所包含的所有软件都有initialize -&gt; running -&gt; shutdown这三个状态。</p>
+<h2 id="存储">存储</h2>
+<p>存储的形式最常见的有文件存储以及数据库存储。</p>
+<h1 id="从生命周期来看程序">从生命周期来看程序</h1>
+<p>显然，从OS被载入内存，到系统shutdown，OS以及被OS所包含的所有软件都有initialize
+-&gt; running -&gt; shutdown这三个状态。</p>
 <p>因此，如果按这个道理来看</p>
-<p>从OS -&gt; 程序 -&gt; 进程 -&gt; 线程 -&gt; 组件 -&gt; 函数 -&gt; 变量</p>
+<p>从OS -&gt; 程序 -&gt; 进程 -&gt; 线程 -&gt; 组件 -&gt; 函数 -&gt;
+变量</p>
 <p>各个维度来看，任何一样东西都会有生命周期。</p>
 <p>因此，在学习一个陌生知识点的时候，需要不断的问自己这三个问题：</p>
-<ol>
-<li><p>这个组件什么时候初始化，如何初始化，具体哪些变量或者数据结构初始化？</p>
-</li>
-<li><p>这个组件运行的时候要做什么，上游来的请求是什么样的，偷传给下游的数据是什么样的？</p>
-</li>
-<li><p>这个组件什么时候被销毁？具体销毁的代码是怎么写的呢？</p>
-</li>
+<ol type="1">
+<li><p>这个组件什么时候初始化，如何初始化，具体哪些变量或者数据结构初始化？</p></li>
+<li><p>这个组件运行的时候要做什么，上游来的请求是什么样的，偷传给下游的数据是什么样的？</p></li>
+<li><p>这个组件什么时候被销毁？具体销毁的代码是怎么写的呢？</p></li>
 </ol>
-<h1 id="OO的本质"><a href="#OO的本质" class="headerlink" title="OO的本质"></a>OO的本质</h1><h2 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h2><p>一个对象的本质是什么？是存储 + 计算，因此我们在描述某个对象的功能时，一定可以描述为：xx对象记录了xx信息，提供了xxx的方法。由此也可以反推出，任何一个对象，如果没有理解清楚其记录的信息以及提供的方法，那么对这个对象的理解就是不透彻的。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>这里有一个很有意思的问题：属性重要还是方法重要？</p>
-<p>我认为是方法重要，属性服务于方法。</p>
+<h1 id="oo的本质">OO的本质</h1>
+<h2 id="什么是对象">什么是对象</h2>
+<p>一个对象的本质是什么？是存储 +
+计算，因此我们在描述某个对象的功能时，一定可以描述为：xx对象记录了xx信息，提供了xxx的方法。由此也可以反推出，任何一个对象，如果没有理解清楚其记录的信息以及提供的方法，那么对这个对象的理解就是不透彻的。</p>
+<h2 id="属性">属性</h2>
+<p>这里有一个很有意思的问题：属性重要还是方法重要？</p>
+<p>对于不同的组件来说不一样</p>
+<ul>
+<li>有的对象方法比属性重要</li>
+</ul>
 <p>为什么呢？因为任何需求都可以被抽象成方法，但是不能被抽象为属性。</p>
 <p>例如raft为什么需要记录任期term？是因为在选举的过程中，各个节点的状态不是同步的，需要一个任期来判断节点是否滞后，term属性是为了选举这一方法服务的。</p>
 <p>也就是说，属性是为了方法服务，方法不需要的属性没必要存在。</p>
-<h2 id="函数-方法"><a href="#函数-方法" class="headerlink" title="函数/方法"></a>函数/方法</h2><p>函数的本质是什么？是计算，是数据的流转。而数据的呈现形式是变量。因此所有的函数都可以看作是对变量的C(new)、R(data = vector[1])和U(num++)，D(delete运算，vector中数据的erase)</p>
+<ul>
+<li>有的对象属性比方法重要</li>
+</ul>
+<p>比如etcd中的RaftLog，最重要的其实是Entires[]、commitedIndex、appliedIndex这几个变量。而其方法不论有多少if
+else，本质上都是清一色的get/set方法</p>
+<h2 id="函数方法">函数/方法</h2>
+<p>函数的本质是什么？是计算，是数据的流转。而数据的呈现形式是变量。因此所有的函数都可以看作是对变量的C(new)、R(data
+= vector[1])和U(num++)，D(delete运算，vector中数据的erase)</p>
 <p>再进一步，一个函数中的变量有哪些呢？以OO为例</p>
-<ol>
+<ol type="1">
 <li>对象的成员属性</li>
 <li>函数的传参</li>
 <li>全局变量</li>
 </ol>
 <p>此外还有中间变量</p>
 <p>因此，在写函数的时候，一是需要先弄清楚这四者，否则不要下手。二是，写完函数之后要想一想，这三者中有没有拉下的create，update（这里不需要考虑Read）</p>
-<h2 id="对象的组合"><a href="#对象的组合" class="headerlink" title="对象的组合"></a>对象的组合</h2><p>一个用OO写出来的程序，一定是若干对象的继承/组合。每一个对象会有属性，方法，这里的方法可以理解为为上层对象准备的API。若干个对象组合成一个模块（注意：继承不能形成模块，继承只能形成单一的个体），每个模块向外暴露一些API。</p>
+<h2 id="对象的组合">对象的组合</h2>
+<p>一个用OO写出来的程序，一定是若干对象的继承/组合。每一个对象会有属性，方法，这里的方法可以理解为为上层对象准备的API。若干个对象组合成一个模块（注意：继承不能形成模块，继承只能形成单一的个体），每个模块向外暴露一些API。</p>
 <p>因此我们在谈说学写代码不能只能只会调包，要懂程序的原理。而从这个角度看来，程序的原来也无非是一些API与一些对象的属性以及一些重要的实现而已。</p>
 <p>所以，我认为API才是整个程序设计的灵魂，明白了各个模块之间的API也就能够弄懂整个程序的架构设计。</p>
 <p>具体的落地方法，可以使用CLION/VScode左侧边栏的缩略图，可以从整体看到一个对象</p>
-<p><a target="_blank" rel="noopener" href="https://q1ht0wsrvr.feishu.cn/wiki/wikcn1qhqQ5I9he7dAwB5Jpgp7g">DEMO</a></p>
-<h1 id="如何拆解程序"><a href="#如何拆解程序" class="headerlink" title="如何拆解程序"></a>如何拆解程序</h1><p>显然，对于一个庞大的系统来说，要是直接上来扎进源码的实现里，除了浪费时间以及把自己搞得晕头转向以外别无任何其他作用。</p>
+<p><a
+target="_blank" rel="noopener" href="https://q1ht0wsrvr.feishu.cn/wiki/wikcn1qhqQ5I9he7dAwB5Jpgp7g">DEMO</a></p>
+<h1 id="如何拆解程序">如何拆解程序</h1>
+<p>显然，对于一个庞大的系统来说，要是直接上来扎进源码的实现里，除了浪费时间以及把自己搞得晕头转向以外别无任何其他作用。</p>
 <p>因此对于大型的程序，必须要对其进行拆解。</p>
 <p>具体落地的措施有</p>
-<ol>
-<li><p>找资料，找到程序的架构图，它可能是在程序的官网(例如tidb)，也有可能在某篇paper中(snowflake)，还有可能根本没有官方资料，只有民间大佬所整理的图片(ClickHouse)。根据架构图，理解程序的整体架构，以及有哪些大的模块。</p>
-</li>
-<li><p>针对某个模块，看源代码时，先看左侧的API structure结构(vscode中的outline，idea中的structure)，理解这个模块究竟做了哪些工作，有哪些功能，这个结构体有哪些属性。由此便可以简单了解这个模块。</p>
-</li>
-<li><p>对于raft这种看了接口实现也无法理解其背后原理的程序，先自己yy一个暴力的实现，然后再去看std的实现。实际上这种应用20%的代码就可以实现基本功能，50%在解决corner case, 30%在优化（包括功能扩展与时空优化）</p>
-</li>
+<ol type="1">
+<li><p>找资料，找到程序的架构图，它可能是在程序的官网(例如tidb)，也有可能在某篇paper中(snowflake)，还有可能根本没有官方资料，只有民间大佬所整理的图片(ClickHouse)。根据架构图，理解程序的整体架构，以及有哪些大的模块。</p></li>
+<li><p>针对某个模块，看源代码时，先看左侧的API
+structure结构(vscode中的outline，idea中的structure)，理解这个模块究竟做了哪些工作，有哪些功能，这个结构体有哪些属性。由此便可以简单了解这个模块。</p></li>
+<li><p>对于raft这种看了接口实现也无法理解其背后原理的程序，先自己yy一个暴力的实现，然后再去看std的实现。实际上这种应用20%的代码就可以实现基本功能，50%在解决corner
+case, 30%在优化（包括功能扩展与时空优化）</p></li>
 </ol>
-<h1 id="从系统架构来看程序"><a href="#从系统架构来看程序" class="headerlink" title="从系统架构来看程序"></a>从系统架构来看程序</h1><ol>
-<li><p>日志系统</p>
-</li>
-<li><p>监控系统/metrics系统</p>
-</li>
-<li><p>公共组件<br> a. 线程管理<br> b. 异常处理<br> c. 基础工具类</p>
-</li>
-<li><p>单元测试<br> a. SpringBoot提供了Test类来进行测试<br> b. ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</p>
-</li>
-<li><p>权限系统</p>
-</li>
+<h1 id="从系统架构来看程序">从系统架构来看程序</h1>
+<ol type="1">
+<li><p>日志系统</p></li>
+<li><p>监控系统/metrics系统</p></li>
+<li><p>公共组件</p>
+<ol type="a">
+<li>线程管理</li>
+<li>异常处理</li>
+<li>基础工具类</li>
+</ol></li>
+<li><p>单元测试</p>
+<ol type="a">
+<li>SpringBoot提供了Test类来进行测试</li>
+<li>ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</li>
+</ol></li>
+<li><p>权限系统</p></li>
 </ol>
 <p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
 <p>权限校验一般会放在最开始的部分，不与具体业务耦合。</p>
@@ -280,12 +307,13 @@ b. Vue前端可以做到按钮级别的权限管理
 
 c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）
 
-d. MySQL等数据库可以做到表的CRUD权限管理
-</code></pre><ol>
+d. MySQL等数据库可以做到表的CRUD权限管理</code></pre>
+<ol start="6" type="1">
 <li>配置文件</li>
 </ol>
 <p>例如Java的applicaiton.properties</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-<span class="keyword">class</span>-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/seata?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=<span class="number">12345678</span></span><br><span class="line">#=====================================mybatis\u914D\u7F6E======================================</span><br><span class="line">mybatis.mapper-locations=classpath*:/mapper<span class="comment">/*.xml</span></span><br></pre></td></tr></table></figure>
+
 
                 <hr>
 
