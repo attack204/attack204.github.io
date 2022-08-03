@@ -195,19 +195,23 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><ol>
+                <h1 id="内存管理">内存管理</h1>
+<h1 id="数据结构">数据结构</h1>
+<h2 id="树">树</h2>
+<ol type="1">
 <li>树的迭代方式：不论是Linux中的PCB还是CSS中的选择器，都可以抽象为树形结构，而且都提供了：父节点指针、子节点指针、兄弟节点指针这三种访问方式</li>
 </ol>
-<h1 id="调度问题"><a href="#调度问题" class="headerlink" title="调度问题"></a>调度问题</h1><p>调度问题有两类：第一类是n个人抢m个坑，第二类是n个人抢1个坑</p>
+<h1 id="调度问题">调度问题</h1>
+<p>调度问题有两类：第一类是n个人抢m个坑，第二类是n个人抢1个坑</p>
 <p>第一类：</p>
-<ol>
+<ol type="1">
 <li>CPU多队列调度策略：为每个CPU维护一个待执行队列</li>
 <li>GO语言的GMP模型：为每个系统级线程P维护一个待执行队列freeG</li>
 <li>CDN调度算法：n个人访问m台机器，每台机器有处理的阈值，问怎么分配能使得</li>
 </ol>
 <p>第二类：</p>
-<ol>
-<li>线程的调度策略：FIFO/CFS</li>
+<ol type="1">
+<li>线程的调度策略：FIFO/CFS。（Java是直接把线程的调度托管给OS做）</li>
 </ol>
 
 
