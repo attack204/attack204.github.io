@@ -287,37 +287,6 @@ structure结构(vscode中的outline，idea中的structure)，理解这个模块�
 <li><p>对于raft这种看了接口实现也无法理解其背后原理的程序，先自己yy一个暴力的实现，然后再去看std的实现。实际上这种应用20%的代码就可以实现基本功能，50%在解决corner
 case, 30%在优化（包括功能扩展与时空优化）</p></li>
 </ol>
-<h1 id="从系统架构来看程序">从系统架构来看程序</h1>
-<ol type="1">
-<li><p>日志系统</p></li>
-<li><p>监控系统/metrics系统</p></li>
-<li><p>公共组件</p>
-<ol type="a">
-<li>线程管理</li>
-<li>异常处理</li>
-<li>基础工具类</li>
-</ol></li>
-<li><p>单元测试</p>
-<ol type="a">
-<li>SpringBoot提供了Test类来进行测试</li>
-<li>ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</li>
-</ol></li>
-<li><p>权限系统</p></li>
-</ol>
-<p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
-<p>权限校验一般会放在最开始的部分，不与具体业务耦合。</p>
-<pre><code>a. Linux系统有用户和用户组的概念
-
-b. Vue前端可以做到按钮级别的权限管理
-
-c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）
-
-d. MySQL等数据库可以做到表的CRUD权限管理</code></pre>
-<ol start="6" type="1">
-<li>配置文件</li>
-</ol>
-<p>例如Java的applicaiton.properties</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-<span class="keyword">class</span>-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/seata?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=<span class="number">12345678</span></span><br><span class="line">#=====================================mybatis\u914D\u7F6E======================================</span><br><span class="line">mybatis.mapper-locations=classpath*:/mapper<span class="comment">/*.xml</span></span><br></pre></td></tr></table></figure>
 
 
                 <hr>

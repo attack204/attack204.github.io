@@ -205,7 +205,7 @@
 <p>调度问题有两类：第一类是n个人抢m个坑，第二类是n个人抢1个坑</p>
 <p>第一类：</p>
 <ol type="1">
-<li>CPU多队列调度策略：为每个CPU维护一个待执行队列</li>
+<li>多核CPU多队列调度策略：为每个CPU维护一个待执行队列</li>
 <li>GO语言的GMP模型：为每个系统级线程P维护一个待执行队列freeG</li>
 <li>CDN调度算法：n个人访问m台机器，每台机器有处理的阈值，问怎么分配能使得</li>
 </ol>
@@ -213,6 +213,49 @@
 <ol type="1">
 <li>线程的调度策略：FIFO/CFS。（Java是直接把线程的调度托管给OS做）</li>
 </ol>
+<h1 id="从系统架构来看程序">从系统架构来看程序</h1>
+<h2 id="日志系统">日志系统</h2>
+<p>我认为的日志：从最基本的程序的print到大型日志的log，只要是能打印出程序运行过程中内部的变量的取值的txt文档或者文件，都能被称作是日志。</p>
+<p>常见的有</p>
+<ul>
+<li><p>MySQL中的binlog作为SQL层的日志</p></li>
+<li><p>Postgres中的redolog/WAL作为Engine层的日志</p></li>
+<li><p>大型项目中一般会有log库，且用这些log库打出来的日志有唯一的id，各个微服务使用统一的log平台，并在log中传入context可以实现全链路的追踪</p></li>
+</ul>
+<p>日志系统的常见技术手段</p>
+<ol type="1">
+<li>并行刷日志</li>
+</ol>
+<p><img src="https://cdn.attack204.com/20220804084332.png" /></p>
+<ol start="2" type="1">
+<li><p>监控系统/metrics系统</p></li>
+<li><p>公共组件</p>
+<ol type="a">
+<li>线程管理</li>
+<li>异常处理</li>
+<li>基础工具类</li>
+</ol></li>
+<li><p>单元测试</p>
+<ol type="a">
+<li>SpringBoot提供了Test类来进行测试</li>
+<li>ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</li>
+</ol></li>
+<li><p>权限系统</p></li>
+</ol>
+<p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
+<p>权限校验一般会放在最开始的部分，不与具体业务耦合。</p>
+<pre><code>a. Linux系统有用户和用户组的概念
+
+b. Vue前端可以做到按钮级别的权限管理
+
+c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）
+
+d. MySQL等数据库可以做到表的CRUD权限管理</code></pre>
+<ol start="6" type="1">
+<li>配置文件</li>
+</ol>
+<p>例如Java的applicaiton.properties</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-<span class="keyword">class</span>-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/seata?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=<span class="number">12345678</span></span><br><span class="line">#=====================================mybatis\u914D\u7F6E======================================</span><br><span class="line">mybatis.mapper-locations=classpath*:/mapper<span class="comment">/*.xml</span></span><br></pre></td></tr></table></figure>
 
 
                 <hr>
