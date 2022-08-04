@@ -199,14 +199,18 @@
         </h3>
         <div class="post-content-preview">
             任何一个问题都是一类问题
-内存管理数据结构树
+内存管理
+数据结构
+树
+
 树的迭代方式：不论是Linux中的PCB还是CSS中的选择器或者是MySQL中的B+树，都可以抽象为树形结构，而且都提供了：父节点指针、子节点指针、兄弟节点指针这三种访问方式
 
-调度问题调度问题有两类：第一类是n个人抢m个坑，第二类是n个人抢1个坑
+调度问题
+调度问题有两类：第一类是n个人放到m个队列上，第二类是n个人抢1个坑
 第一类：
 
 多核CPU多队列调度策略：为每个CPU维护一个待执行队列
-GO语言的GMP模型：为每个......
+GO语言的GM......
         </div>
     </a>
     <p class="post-meta">
@@ -617,6 +621,23 @@ $x^2 \equiv (x+p)^2 \pmod p$
 <!-- Image to hack wechat -->
 <img src="https://blog.attack204.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 
