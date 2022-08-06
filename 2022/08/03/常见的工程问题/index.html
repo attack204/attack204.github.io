@@ -196,57 +196,67 @@
                 post-container">
 
                 <p><strong>任何一个问题都是一类问题</strong></p>
-<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><ol>
+<h1 id="内存管理">内存管理</h1>
+<h1 id="数据结构">数据结构</h1>
+<h2 id="树">树</h2>
+<ol type="1">
 <li>树的迭代方式：不论是Linux中的PCB还是CSS中的选择器或者是MySQL中的B+树，都可以抽象为树形结构，而且都提供了：父节点指针、子节点指针、兄弟节点指针这三种访问方式</li>
 </ol>
-<h1 id="调度问题"><a href="#调度问题" class="headerlink" title="调度问题"></a>调度问题</h1><p>调度问题有两类：第一类是n个人放到m个队列上，第二类是n个人抢1个坑</p>
+<h1 id="调度问题">调度问题</h1>
+<p>调度问题有两类：第一类是n个人放到m个队列上，第二类是n个人抢1个坑</p>
 <p>第一类：</p>
-<ol>
+<ol type="1">
 <li>多核CPU多队列调度策略：为每个CPU维护一个待执行队列</li>
 <li>GO语言的GMP模型：为每个系统级线程P维护一个待执行队列freeG</li>
 <li>CDN调度算法：n个人访问m台机器，每台机器有处理的阈值，问怎么分配（最大流）</li>
 </ol>
 <p>需要注意的问题</p>
-<ol>
+<ol type="1">
 <li>负载不均衡的情况怎么处理？是让每个队列去别的队列抢人吗？（GMP）还是维护一个全局的调度器？（CPU）</li>
 </ol>
 <p>第二类：</p>
-<ol>
+<ol type="1">
 <li>线程的调度策略：FIFO/CFS。（JVM是直接把Thread的调度托管给OS做）</li>
 <li>GMP中P决定将哪个G绑定到M上（每个运行不超过10MS）</li>
 <li>VMThread以VMOperate链表的形式link起来（但是没搞明白调度算法是什么）</li>
 </ol>
 <p>需要注意的是：当引入调度问题的时候，实际上引入了两个问题</p>
-<ol>
+<ol type="1">
 <li>选哪个：即从n个目标当中选哪个的问题</li>
 <li>如何切换：当该目标执行完成之后，如何把它放回原处，或者说不等它执行完成就把他放回原处</li>
 </ol>
 <p>现在在思考的一个问题：</p>
-<p>关于线程调度，究竟该如何手写一个线程库？</p>
-<h1 id="从系统架构来看程序"><a href="#从系统架构来看程序" class="headerlink" title="从系统架构来看程序"></a>从系统架构来看程序</h1><h2 id="日志系统"><a href="#日志系统" class="headerlink" title="日志系统"></a>日志系统</h2><p>我认为的日志：从最基本的程序的print到大型日志的log，只要是能打印出程序运行过程中内部的变量的取值的txt文档或者文件，都能被称作是日志。</p>
+<p>如何手写一个用户态的线程？</p>
+<p>维护好每个线程的栈空间以及PC，线程切换的时候不由内核态介入，而直接把数据保存在栈空间中。</p>
+<p>以及设计好线程的调度算法</p>
+<h1 id="从系统架构来看程序">从系统架构来看程序</h1>
+<h2 id="日志系统">日志系统</h2>
+<p>我认为的日志：从最基本的程序的print到大型日志的log，只要是能打印出程序运行过程中内部的变量的取值的txt文档或者文件，都能被称作是日志。</p>
 <p>常见的有</p>
 <ul>
-<li><p>MySQL中的binlog作为SQL层的日志</p>
-</li>
-<li><p>Postgres中的redolog/WAL作为Engine层的日志</p>
-</li>
-<li><p>大型项目中一般会有log库，且用这些log库打出来的日志有唯一的id，各个微服务使用统一的log平台，并在log中传入context可以实现全链路的追踪</p>
-</li>
+<li><p>MySQL中的binlog作为SQL层的日志</p></li>
+<li><p>Postgres中的redolog/WAL作为Engine层的日志</p></li>
+<li><p>大型项目中一般会有log库，且用这些log库打出来的日志有唯一的id，各个微服务使用统一的log平台，并在log中传入context可以实现全链路的追踪</p></li>
 </ul>
 <p>日志系统的常见技术手段</p>
-<ol>
+<ol type="1">
 <li>并行刷日志</li>
 </ol>
-<p><img src="https://cdn.attack204.com/20220804084332.png" alt=""></p>
-<ol>
-<li><p>监控系统/metrics系统</p>
-</li>
-<li><p>公共组件<br> a. 线程管理<br> b. 异常处理<br> c. 基础工具类</p>
-</li>
-<li><p>测试<br> a. SpringBoot提供了Test类来进行测试<br> b. ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</p>
-</li>
-<li><p>权限系统</p>
-</li>
+<p><img src="https://cdn.attack204.com/20220804084332.png" /></p>
+<ol start="2" type="1">
+<li><p>监控系统/metrics系统</p></li>
+<li><p>公共组件</p>
+<ol type="a">
+<li>线程管理</li>
+<li>异常处理</li>
+<li>基础工具类</li>
+</ol></li>
+<li><p>测试</p>
+<ol type="a">
+<li>SpringBoot提供了Test类来进行测试</li>
+<li>ClickHouse这种的会有一个单独的test文件夹，里面放了各种sql语句，在CI/CD的过程中进行测试</li>
+</ol></li>
+<li><p>权限系统</p></li>
 </ol>
 <p>对于大型系统，一般都会有多租户机制，即对于不同用户的不同权限分配。</p>
 <p>权限校验一般会放在最开始的部分，不与具体业务耦合。</p>
@@ -256,12 +266,70 @@ b. Vue前端可以做到按钮级别的权限管理
 
 c. SpringBoot可以使用Security来做到方法级别的权限管理（RBAC权限模型）
 
-d. MySQL等数据库可以做到表的CRUD权限管理
-</code></pre><ol>
+d. MySQL等数据库可以做到表的CRUD权限管理</code></pre>
+<ol start="6" type="1">
 <li>配置文件</li>
 </ol>
 <p>例如Java的applicaiton.properties</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-<span class="keyword">class</span>-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/seata</span></span><br></pre></td></tr></table></figure>
+<h2 id="堆栈与内存信息">堆栈与内存信息</h2>
+<p>阅读源码的时候可以使用printTrace之类的打印函数调用堆栈，同时若打印出的堆栈是xxx.so文件，可以使用objdump反编译</p>
+<h2 id="api设计">API设计</h2>
+<ol type="1">
+<li>一个好的traffic cop应该怎么设计？</li>
+</ol>
+<p>任何一个大型项目（openGauss）和大的模块（JVM
+JIT）其主线流程一定可以被拆解为几个小的模块。</p>
+<p>以C1 JIT为例，无非就是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setup,                     <span class="comment">//   1)设置C1编译环境</span></span><br><span class="line">buildIR,                   <span class="comment">//   2)构造HIR</span></span><br><span class="line">emit_lir,                  <span class="comment">//   3)构造LIR</span></span><br><span class="line">codeemit,                  <span class="comment">//   4)机器代码生成</span></span><br><span class="line">codeinstall,               <span class="comment">//   5)替换解释执行的代码为机器代码(nmethod)</span></span><br></pre></td></tr></table></figure>
+<p>但是main函数该怎么设计呢？</p>
+<p>一种思路是setup -&gt; build -&gt; emit_lir -&gt; codemit -&gt;
+codeinstall，从头调用到尾</p>
+<p>还有一种思路就是顺序调用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call setup</span><br><span class="line">call build</span><br><span class="line">call emit_lir</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<p>那么显然后者的设计更加清晰，能够让阅读代码的人一眼就看出，这个大的模块被拆成了几部。</p>
+<ol start="2" type="1">
+<li>API的数量与参数的个数之间的trade off</li>
+</ol>
+<p>原则上是能以参数提供就不要增加API数量</p>
+<h2 id="系统设计">系统设计</h2>
+<p>HINT：MySQL读写认为是3000，Redis认为是10W</p>
+<ol type="1">
+<li>抖音关注系统设计：支持查询粉丝，查询关注的人</li>
+</ol>
+<p>数据库&lt;id, 关注者, 被关注者&gt;</p>
+<p>查询粉丝Where 被关注者 = A</p>
+<p>查询关注的人Where 关注者 = A</p>
+<p>对于热A，采用Redis缓存机制</p>
+<ol start="2" type="1">
+<li>Feed流系统设计</li>
+</ol>
+<p>什么是Feed流系统：</p>
+<p>定义Feed = {feed_id, author_id, time, data}</p>
+<p>有n个人，和m条关注关系（即A-&gt;B表示A关注了B，
+默认A-&gt;A存在），且每个人都有自己的vector&lt;Feed&gt;</p>
+<p>有k次操作，每个操作有3种类型op</p>
+<p>op=1：输入author_id，输出一个vector&lt;Feed&gt;，为author_id关注的所有人的vector数据按time排序之后的并</p>
+<p>op=2：输入A, B，表示A关注了B</p>
+<p>op=3：输入author_id, post_id,
+new_data，找到Feed中对应的post_id，并把data改为new_data(time不变)</p>
+<p>数据范围<span class="math inline">\(n=10^8\)</span>, <span
+class="math inline">\(m=10^12\)</span>(假设每个人关注1000个用户),
+每个人发布了1000条Feed</p>
+<p>做法：</p>
+<ol type="1">
+<li>暴力</li>
+</ol>
+<p>维护两张表，第一个是关注表&lt;id, A,
+b&gt;，第二个是Feed表&lt;feed_id, author_id, time, data&gt;</p>
+<p>对于op=1，查询的时候先查询A关注了谁，得到List&lt;B&gt;，
+再查出所有的Feed，并按时间排序。</p>
+<p>复杂度，对于单词查询为1000 * 1000 / 3000 = 333s</p>
+<ol start="2" type="1">
+<li>优化</li>
+</ol>
+<p>做一层缓存，将热Feed丢到Redis中。</p>
+
 
                 <hr>
 
