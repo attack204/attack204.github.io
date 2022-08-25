@@ -1,8 +1,5 @@
 ## About
 
-### <div align="center">I'm attack204</div>  
+###  <div align="center">about me<a href="https://attack204.com/">here</a> </div>  
 
-###  <div align="center">more about me here <a href="https://attack204.com/">here</a> </div>  
-
-<br/>  
 
