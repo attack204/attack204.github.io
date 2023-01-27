@@ -1,7 +1,15 @@
+我正在寻找2023年暑期实习的岗位，方向为数据库内核开发/后端开发/量化交易系统开发。
 
+如果你有合适的岗位/内推机会/交流群等，可以随时联系我！微信：L15006856731
 
-<h2><div align="center"><a href="https://attack204.com/">About Me</a> </div></h2>
+我的经历：
 
-<b> <div align="center">I am looking for the intern or full time job in 2023 summer , feel free to contact me by WeChat: L15006856731! </div></b>
+- 学历：哈尔滨工业大学 软件工程专业 本科
+- 竞赛经历：ACM EC Final 银牌。全国青少年信息学奥林匹克竞赛提高组一等奖。
+- 科研经历：一篇数据库方向顶会一作在投(USENIX ATC'23)
+- 实习经历：
+  * 字节跳动：后端开发，owner了掘金站点地图项目，[线上地址](https://juejin.cn/map-author-A-1)
+  * 华为：体系结构开发，开发了libkperf工具，并用其对JVM的GC, JIT过程进行采样。
+- 开源经历：目前正在参与[ClickHouse](https://github.com/ClickHouse/ClickHouse)社区
 
-
+更详细的简历欢迎私信！
