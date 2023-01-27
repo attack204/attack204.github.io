@@ -10,6 +10,6 @@
 - 实习经历：
   * 字节跳动：后端开发，owner了掘金站点地图项目，[线上地址](https://juejin.cn/map-author-A-1)
   * 华为：体系结构开发，开发了libkperf工具，并用其对JVM的GC, JIT过程进行采样。
-- 开源经历：目前正在参与[ClickHouse](https://github.com/ClickHouse/ClickHouse)社区
+- 开源经历：目前正在参与OLAP数据库[ClickHouse](https://github.com/ClickHouse/ClickHouse)的开发
 
 更详细的简历欢迎私信！
